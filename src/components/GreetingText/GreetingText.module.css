@@ -1,0 +1,23 @@
+/* GreetingText.module.css */
+.container {
+	text-align: left;
+	width: 595px;
+	height: 438px;
+	padding-right: 125px;
+}
+
+.title {
+	font-weight: 600;
+	font-size: 80px;
+	line-height: 1.02;
+	color: #191a15;
+}
+
+.text {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 1.33;
+	color: #191a15;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}

@@ -1,8 +1,10 @@
-/* src/index.css */
-
 body {
 	font-family: sans-serif;
 	line-height: 1.5;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 h1,
@@ -19,9 +21,28 @@ ul,
 ol {
 	margin: 0;
 	padding: 0;
+	list-style-type: none;
 }
 
 img {
 	display: block;
 	max-width: 100%;
+}
+
+:root {
+	--primary-color: #54be96;
+	--primary-color-dark: #36a379;
+	--button-text-color: #fff;
+}
+
+[data-theme="orange"] {
+	--primary-color: #fc832c;
+	--primary-color-dark: #f37113;
+	--button-text-color: #fff;
+}
+
+[data-theme="blue"] {
+	--primary-color: #3470ff;
+	--primary-color-dark: #255ee8;
+	--button-text-color: #fff;
 }

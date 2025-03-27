@@ -1,0 +1,13 @@
+.homePage {
+	margin: auto 128px;
+	height: 100%;
+}
+
+.list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	flex-direction: row;
+	padding-top: 78px;
+}

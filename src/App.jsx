@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { ThemeProvider } from "./context/ThemeContext";
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
+import Loader from "./components/Loader/Loader";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+import Header from "./components/Header/Header";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const PsychologistsPage = lazy(() =>
+	import("./pages/PsychologistsPage/PsychologistsPage")
+);
+
+export default function App() {
+	return (
+		<ThemeProvider>
+			<ThemeSwitcher />
+			<Suspense fallback={<Loader />}>
+				<Header />
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/psychologists" element={<PsychologistsPage />} />
+					<Route path="*" element={<NotFoundPage />} />
+				</Routes>
+			</Suspense>
+		</ThemeProvider>
+	);
 }
-
-export default App
