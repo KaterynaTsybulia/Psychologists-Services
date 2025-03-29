@@ -3,7 +3,7 @@ import sprite from "../../assets/sprite.svg";
 import { colorThema } from "../../utils/color";
 import { useTheme } from "../../context/ThemeContext";
 
-const Icon = ({ id, width = 16, height = 16 }) => {
+const IconWithTheme = ({ id, width = 16, height = 16 }) => {
 	const { theme } = useTheme();
 	const color = colorThema(theme);
 
@@ -14,4 +14,4 @@ const Icon = ({ id, width = 16, height = 16 }) => {
 	);
 };
 
-export default Icon;
+export default IconWithTheme;

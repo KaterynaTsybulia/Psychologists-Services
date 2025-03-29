@@ -14,16 +14,25 @@
 
 	border-radius: 30px;
 	padding: 18px 50px;
-	width: 235px;
+	width: 253px;
 	height: 60px;
 
 	background-color: var(--primary-color);
 	color: var(--button-text-color, #fff);
+	gap: 18px;
 }
 
 .btn:hover {
 	background-color: var(--primary-color-dark);
 }
+
+/* .btn::after {
+	content: "→";
+	margin-left: 18px;
+	stroke-width: 2px;
+	stroke: #fbfbfb;
+	transform: rotate(-53deg);
+} */
 
 /* .btn:disabled {
 	background-color: #ccc;

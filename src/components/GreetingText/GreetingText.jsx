@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 
 import css from "./GreetingText.module.css";
+import IconNoTheme from "../Icon/IconNoTheme";
 
 const GreetingText = () => {
 	return (
@@ -12,7 +13,9 @@ const GreetingText = () => {
 				in your own life with the help of our experienced psychologists.
 			</p>
 			<Link to={`/psychologists`}>
-				<Button text="Get started" />
+				<Button text="Get started">
+					<IconNoTheme id="icon-Arrow" />
+				</Button>
 			</Link>
 		</li>
 	);
