@@ -1,25 +1,20 @@
-import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
-// import Navigation from "../Navigation/Navigation";
-import { UserMenu } from "../UserMenu/UserMenu";
 import { Logo } from "../Logo/Logo";
-
-import css from "./Header.module.css";
-// import { UserNav } from "../UserNav/UserNav";
+import { UserMenu } from "../UserMenu/UserMenu";
+import { UserInside } from "../UserInside/UserInside";
 import { UserAuth } from "../UserAuth/UserAuth";
 
-export default function Header() {
-	// const isLoggedIn = useSelector(selectUserIsLoggedIn);
+import css from "./Header.module.css";
+
+export const Header = () => {
+	const { user } = useAuth();
 
 	return (
 		<header className={css.header}>
 			<Logo />
 			<UserMenu />
-			{/* {isLoggedIn ? */}
-			{/* <UserNav /> */}
-			<UserAuth />
-			{/* } */}
-			{/* <Navigation /> */}
+			{user ? <UserInside /> : <UserAuth />}
 		</header>
 	);
-}
+};

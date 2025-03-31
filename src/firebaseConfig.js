@@ -1,7 +1,8 @@
+// firebaseConfig.js
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database"; // Импортируем нужную функцию
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDmitq5sWl8TeJT4TiOM4aBIWOZ68VVqQM",
@@ -13,5 +14,9 @@ const firebaseConfig = {
 	measurementId: "G-ST2BFM7YBV",
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const db = getDatabase(app); // Получаем объект базы данных
+
+export { app, analytics, auth, db }; // Экспортируем объект базы данных

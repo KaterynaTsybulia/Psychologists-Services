@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom";
-// import { useSelector } from "react-redux";
 import clsx from "clsx";
 
 import { colorThema } from "../../utils/color";
+import { useAuth } from "../../context/AuthContext";
 
-// import { selectUserIsLoggedIn } from "../../redux/auth/selectors";
 import css from "./UserMenu.module.css";
 
 const buildCssClasses = ({ isActive, to }) =>
@@ -12,7 +11,7 @@ const buildCssClasses = ({ isActive, to }) =>
 
 export const UserMenu = ({ theme }) => {
 	const circleColor = colorThema(theme);
-	// const isLoggedIn = useSelector(selectUserIsLoggedIn);
+	const { user } = useAuth();
 
 	return (
 		<nav className={css.navigation} style={{ "--circle-color": circleColor }}>
@@ -22,11 +21,11 @@ export const UserMenu = ({ theme }) => {
 			<NavLink to="/psychologists" className={buildCssClasses}>
 				Psychologists
 			</NavLink>
-			{/* {isLoggedIn && (
-        <NavLink to="/favorites" className={buildCssClasses}>
-          Favorites
-        </NavLink>
-      )} */}
+			{user && (
+				<NavLink to="/favorites" className={buildCssClasses}>
+					Favorites
+				</NavLink>
+			)}
 		</nav>
 	);
 };

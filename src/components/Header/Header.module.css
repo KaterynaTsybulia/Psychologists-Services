@@ -5,4 +5,17 @@
 
 	height: 96px;
 	margin: auto 128px;
+	stroke-width: 1px;
+	stroke: rgba(25, 26, 21, 0.1);
+	position: relative;
+}
+
+.header::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: -128px;
+	right: -128px;
+	border-bottom: 1px solid rgba(25, 26, 21, 0.1);
+	z-index: -1;
 }

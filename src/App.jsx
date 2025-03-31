@@ -8,7 +8,8 @@ import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import Loader from "./components/Loader/Loader";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
-import Header from "./components/Header/Header";
+import { AuthProvider } from "./context/AuthContext";
+import { Header } from "./components/Header/Header";
 import Modal from "./components/Modal/Modal";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -18,19 +19,21 @@ const PsychologistsPage = lazy(() =>
 
 export default function App() {
 	return (
-		<ModalProvider>
-			<ThemeProvider>
-				<ThemeSwitcher />
-				<Modal />
-				<Suspense fallback={<Loader />}>
-					<Header />
-					<Routes>
-						<Route path="/" element={<HomePage />} />
-						<Route path="/psychologists" element={<PsychologistsPage />} />
-						<Route path="*" element={<NotFoundPage />} />
-					</Routes>
-				</Suspense>
-			</ThemeProvider>
-		</ModalProvider>
+		<AuthProvider>
+			<ModalProvider>
+				<ThemeProvider>
+					<ThemeSwitcher />
+					<Modal />
+					<Suspense fallback={<Loader />}>
+						<Header />
+						<Routes>
+							<Route path="/" element={<HomePage />} />
+							<Route path="/psychologists" element={<PsychologistsPage />} />
+							<Route path="*" element={<NotFoundPage />} />
+						</Routes>
+					</Suspense>
+				</ThemeProvider>
+			</ModalProvider>
+		</AuthProvider>
 	);
 }

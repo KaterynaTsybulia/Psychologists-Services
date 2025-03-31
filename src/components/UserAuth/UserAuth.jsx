@@ -1,7 +1,6 @@
-import { NavLink } from "react-router-dom";
-
 import { useModal } from "../../context/ModalContext";
 import { colorThema } from "../../utils/color";
+import Button from "../Button/Button";
 
 import css from "./UserAuth.module.css";
 
@@ -10,13 +9,22 @@ export const UserAuth = ({ theme }) => {
 	const circleColor = colorThema(theme);
 
 	return (
-		<nav className={css.navigation} style={{ "--circle-color": circleColor }}>
-			<NavLink className={css.linkL} onClick={() => openModal("login")}>
-				Log In
-			</NavLink>
-			<NavLink className={css.linkR} onClick={() => openModal("register")}>
-				Registration
-			</NavLink>
-		</nav>
+		<section
+			className={css.sectionAuth}
+			style={{ "--circle-color": circleColor }}
+		>
+			<Button
+				className={css.buttonL}
+				value="linkL"
+				text="Log In"
+				onClick={() => openModal("login")}
+			/>
+			<Button
+				className={css.buttonR}
+				value="linkR"
+				text="Registration"
+				onClick={() => openModal("register")}
+			/>
+		</section>
 	);
 };

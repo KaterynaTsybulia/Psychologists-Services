@@ -26,6 +26,38 @@
 	background-color: var(--primary-color-dark);
 }
 
+/* .buttonL {
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1.25;
+	letter-spacing: -0.01em;
+	color: #191a15;
+	background-color: transparent;
+
+	border: 1px solid rgba(25, 26, 21, 0.2);
+	border-radius: 30px;
+	padding: 14px 39px;
+	width: 124px;
+	height: 48px;
+}
+
+.buttonR {
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1.25;
+	letter-spacing: -0.01em;
+	color: #fbfbfb;
+
+	border: none;
+	border-radius: 30px;
+	padding: 14px 40px;
+	width: 171px;
+	height: 48px;
+	background-color: var(--circle-color);
+} */
+
 /* .btn::after {
 	content: "→";
 	margin-left: 18px;

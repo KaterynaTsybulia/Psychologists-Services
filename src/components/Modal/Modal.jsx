@@ -1,12 +1,7 @@
-import {
-	getAuth,
-	signInWithEmailAndPassword,
-	createUserWithEmailAndPassword,
-} from "firebase/auth";
 import { useState } from "react";
 
-import { app } from "../../firebaseConfig";
 import { useModal } from "../../context/ModalContext";
+import { handleLogin, handleRegister } from "../../utils/authHandlers";
 import IconNoTheme from "../Icon/IconNoTheme";
 
 import css from "./Modal.module.css";
@@ -23,44 +18,13 @@ const Modal = () => {
 		setShowPassword(!showPassword);
 	};
 
-	const auth = getAuth(app);
-
-	const handleLogin = (e) => {
+	const handleFormSubmit = (e) => {
 		e.preventDefault();
-
-		if (!email || !password) {
-			setError("Email and Password are required!");
-			return;
+		if (type === "login") {
+			handleLogin(email, password, setError, closeModal);
+		} else {
+			handleRegister(email, password, name, setError, closeModal);
 		}
-
-		signInWithEmailAndPassword(auth, email, password)
-			.then((userCredential) => {
-				console.log("User logged in:", userCredential.user);
-				closeModal();
-			})
-			.catch((err) => {
-				console.error(err);
-				setError(err.message);
-			});
-	};
-
-	const handleRegister = (e) => {
-		e.preventDefault();
-
-		if (!email || !password || !name) {
-			setError("All fields are required!");
-			return;
-		}
-
-		createUserWithEmailAndPassword(auth, email, password)
-			.then((userCredential) => {
-				console.log("User registered:", userCredential.user);
-				closeModal();
-			})
-			.catch((err) => {
-				console.error(err);
-				setError(err.message);
-			});
 	};
 
 	if (!isOpen) return null;
@@ -81,7 +45,7 @@ const Modal = () => {
 				</p>
 				{error && <p className={css.error}>{error}</p>}
 
-				<form onSubmit={type === "login" ? handleLogin : handleRegister}>
+				<form onSubmit={handleFormSubmit}>
 					{type === "register" && (
 						<div style={{ marginBottom: "18px" }}>
 							<label htmlFor="name" />
@@ -141,7 +105,7 @@ const Modal = () => {
 					</div>
 
 					<button type="submit" className={css.button}>
-						{type === "login" ? "Log In" : "Register"}{" "}
+						{type === "login" ? "Log In" : "Register"}
 					</button>
 				</form>
 			</div>
