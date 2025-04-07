@@ -1,7 +1,11 @@
 import { useState } from "react";
 
 import { useModal } from "../../context/ModalContext";
-import { handleLogin, handleRegister } from "../../utils/authHandlers";
+import {
+	handleDetail,
+	handleLogin,
+	handleRegister,
+} from "../../utils/authHandlers";
 import IconNoTheme from "../Icon/IconNoTheme";
 
 import css from "./Modal.module.css";

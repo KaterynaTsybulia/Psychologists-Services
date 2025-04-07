@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ModalContext = createContext();
 
@@ -15,8 +15,16 @@ export const ModalProvider = ({ children }) => {
 		setIsOpen(false);
 	};
 
+	const handleCloseModal = (e) => {
+		if ((e.code && e.code === "Escape") || e.target === e.currentTarget) {
+			setType(null);
+		}
+	};
+
 	return (
-		<ModalContext.Provider value={{ isOpen, closeModal, openModal, type }}>
+		<ModalContext.Provider
+			value={{ isOpen, closeModal, openModal, type, handleCloseModal }}
+		>
 			{children}
 		</ModalContext.Provider>
 	);

@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { AuthProvider } from "./context/AuthContext";
 import { Header } from "./components/Header/Header";
 import Modal from "./components/Modal/Modal";
+import Container from "./components/Container/Container";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const PsychologistsPage = lazy(() =>
@@ -26,11 +27,13 @@ export default function App() {
 					<Modal />
 					<Suspense fallback={<Loader />}>
 						<Header />
-						<Routes>
-							<Route path="/" element={<HomePage />} />
-							<Route path="/psychologists" element={<PsychologistsPage />} />
-							<Route path="*" element={<NotFoundPage />} />
-						</Routes>
+						<Container>
+							<Routes>
+								<Route path="/" element={<HomePage />} />
+								<Route path="/psychologists" element={<PsychologistsPage />} />
+								<Route path="*" element={<NotFoundPage />} />
+							</Routes>
+						</Container>
 					</Suspense>
 				</ThemeProvider>
 			</ModalProvider>

@@ -3,19 +3,37 @@
 	justify-content: space-between;
 	align-items: center;
 
-	height: 96px;
-	margin: auto 128px;
 	stroke-width: 1px;
 	stroke: rgba(25, 26, 21, 0.1);
 	position: relative;
+
+	max-width: 375px;
+	padding: 24px 16px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+@media (min-width: 768px) {
+	.header {
+		max-width: 768px;
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.header {
+		max-width: 1440px;
+		padding-left: 128px;
+		padding-right: 128px;
+	}
+}
 .header::after {
 	content: "";
 	position: absolute;
 	bottom: 0;
-	left: -128px;
-	right: -128px;
+	left: 0;
+	width: 100%;
 	border-bottom: 1px solid rgba(25, 26, 21, 0.1);
 	z-index: -1;
 }

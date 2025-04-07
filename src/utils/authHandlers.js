@@ -4,7 +4,8 @@ import {
 	createUserWithEmailAndPassword,
 	updateProfile,
 } from "firebase/auth";
-import { app } from "../firebaseConfig";
+import { app, db } from "../firebaseConfig";
+import { ref, push, set } from "firebase/database";
 
 const auth = getAuth(app);
 
@@ -56,5 +57,45 @@ export const handleRegister = async (
 	} catch (err) {
 		console.error(err);
 		setError(err.message);
+	}
+};
+
+export const handleDetail = async (
+	email,
+	name,
+	setError,
+	closeModal,
+	phone,
+	comment,
+	time
+) => {
+	if (!email || !name || !phone || !time) {
+		setError("All fields are required!");
+		return;
+	}
+	try {
+		const appointmentsRef = ref(db, "appointments");
+		const newAppointmentRef = push(appointmentsRef);
+
+		await set(newAppointmentRef, {
+			email,
+			name,
+			phone,
+			comment,
+			time,
+		});
+
+		console.log("Appointment details saved:", {
+			email,
+			name,
+			phone,
+			comment,
+			time,
+		});
+
+		closeModal();
+	} catch (err) {
+		console.error("Error saving appointment details:", err);
+		setError("Failed to save appointment. Please try again later.");
 	}
 };
