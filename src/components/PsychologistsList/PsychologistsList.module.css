@@ -1,0 +1,44 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+	.list {
+		gap: 32px;
+		margin-bottom: 64px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.list {
+		gap: 32px;
+		margin-bottom: 100px;
+	}
+}
+
+.loadMore {
+	margin: 32px auto 0;
+	border: none;
+	cursor: pointer;
+
+	border-radius: 30px;
+	padding: 14px 48px;
+	width: 176px;
+	height: 48px;
+
+	font-family: var(--font-family);
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 125%;
+	letter-spacing: -0.01em;
+
+	color: #fbfbfb;
+	background-color: var(--primary-color);
+}
+
+.loadMore[type="submit"]:hover {
+	background-color: var(--primary-color-dark);
+}

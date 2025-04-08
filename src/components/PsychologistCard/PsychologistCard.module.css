@@ -1,0 +1,287 @@
+.cardItem {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	padding: 16px;
+	border-radius: 16px;
+	background-color: #fbfbfb;
+}
+
+@media (min-width: 768px) {
+	.cardItem {
+		padding: 24px;
+		flex-direction: row;
+		gap: 24px;
+	}
+}
+
+.avatarWrap {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	flex-shrink: 0;
+	padding: 12px;
+	border-radius: 30px;
+	border: 2px solid rgba(84, 190, 150, 0.2);
+}
+
+.avatar {
+	border-radius: 15px;
+	width: 96px;
+	height: 96px;
+	background-color: #e0e0e0;
+}
+
+.avatarWrap svg {
+	position: absolute;
+	top: 9px;
+	right: 14px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+	.infoHead {
+		width: 485px;
+	}
+}
+
+.infoHeadList {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	margin-bottom: 18px;
+}
+
+@media (min-width: 375px) and (max-width: 1439px) {
+	.infoHeadList {
+		gap: 16px;
+	}
+}
+
+@media (min-width: 768px) {
+	.infoHeadList {
+		margin-bottom: 24px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.infoHeadList {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.infoHeadItem {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+@media (min-width: 768px) {
+	.infoHeadItem {
+		gap: 8px;
+	}
+}
+
+.infoHeadTitle {
+	color: #8a8a89;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+@media (min-width: 768px) {
+	.infoHeadTitle {
+		font-size: 16px;
+		line-height: 24px; /* 150% */
+	}
+}
+
+.infoHeadName {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 20px; /* 100% */
+}
+
+@media (min-width: 768px) {
+	.infoHeadName {
+		font-size: 24px;
+		line-height: 24px; /* 100% */
+	}
+}
+
+.boxStar {
+	display: flex;
+	align-items: center;
+}
+
+.ratingBox {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0 16px 0 0;
+	margin-right: 16px;
+}
+
+.ratingBox svg {
+	fill: #ffc531;
+}
+
+@media (min-width: 768px) {
+	.ratingBox svg {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+.ratingBox::after {
+	position: absolute;
+	content: "";
+	top: 50%;
+	right: 0;
+	width: 1px;
+	height: 14px;
+	background-color: rgba(25, 26, 21, 0.2);
+	transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+	.ratingBox::after {
+		height: 16px;
+	}
+}
+
+.ratingText {
+	font-weight: 500;
+	line-height: 20px; /* 150% */
+}
+
+@media (min-width: 768px) {
+	.ratingText {
+		font-size: 16px;
+		line-height: 24px; /* 150% */
+	}
+}
+
+.priceText {
+	font-weight: 500;
+	line-height: 20px; /* 150% */
+	margin-right: 24px;
+}
+
+@media (min-width: 768px) {
+	.priceText {
+		font-size: 16px;
+		line-height: 24px; /* 150% */
+		margin-right: 28px;
+	}
+}
+
+.priceText span {
+	color: #38cd3e;
+}
+
+.favoriteBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+@media (min-width: 768px) {
+	.favoriteBtn svg {
+		width: 26px;
+		height: 26px;
+	}
+}
+
+.favoriteSvg {
+	fill: #54be96;
+}
+
+.infoList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 0;
+	width: 311px;
+	margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+	.infoList {
+		gap: 8px 4px;
+		width: 485px;
+		margin-bottom: 24px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.infoList {
+		width: 840px;
+	}
+}
+
+.infoListItem {
+	padding: 8px 14px;
+	border-radius: 20px;
+	background-color: #f3f3f3;
+	color: #8a8a89;
+	font-weight: 500;
+	line-height: 20px; /* 150% */
+}
+
+@media (min-width: 768px) {
+	.infoListItem {
+		padding: 8px 16px;
+		border-radius: 24px;
+		font-size: 16px;
+		line-height: 24px; /* 150% */
+	}
+}
+
+.infoListItem span {
+	color: #191a15;
+}
+
+.infoText {
+	color: rgba(25, 26, 21, 0.5);
+}
+
+@media (min-width: 768px) {
+	.infoText {
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 400;
+	}
+}
+
+.buttonReadMore {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: #191a15;
+	font-family: Inter;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px; /* 150% */
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-skip-ink: none;
+	text-decoration-thickness: auto;
+	text-underline-offset: auto;
+	text-underline-position: from-font;
+	cursor: pointer;
+	margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+	.buttonReadMore {
+		font-size: 16px;
+		line-height: 24px; /* 150% */
+		margin-top: 14px;
+	}
+}
